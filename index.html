@@ -372,7 +372,7 @@
                 <ul class="bill_details_list">
                     <li class="clearfix">
                         <span class="cleft every_bill_title">乘车日期:</span>
-                        <p id="cartime" class="cleft" style="color: #00a7d0; font-weight: bold;" v-text="carTime">2018-06-21</p>
+                        <p id="cartime" class="cleft" style="color: #00a7d0; font-weight: bold;" v-text="carTime"></p>
                     </li>
                 </ul>
             </div>
@@ -390,7 +390,7 @@
                     </li>
                     <li class="clearfix">
                         <span class="cleft every_bill_title ">下单日期</span>
-                        <p class="cleft orange" style="color: #999;" v-text="carTime">2018-06-21</p>
+                        <p id="ordertime" class="cleft orange" style="color: #999;" v-text="carTime"></p>
                     </li>
                     <li class="clearfix">
                         <span class="cleft every_bill_title ">订单编号</span>
@@ -557,4 +557,10 @@
     <input id="userId_index" type="hidden" />
 </form>
 </body>
+<script>
+    var date = new Date();
+    var date_format = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
+   document.getElementById("cartime").innerHTML = date_format;
+    document.getElementById("ordertime").innerHTML = date_format;
+</script>
 </html>
