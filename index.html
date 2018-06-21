@@ -330,7 +330,7 @@
                         </div>
                     </div>
                     <!--......-->
-                    <div class="circles" style="top:120px" v-show="isCheckTicket">
+                    <div class="circles" style="top:80px" v-show="isCheckTicket">
                         <!--v-show="isCheckTicket"-->
                         <div></div>
                         <div></div>
@@ -342,17 +342,17 @@
         </div>
         <div id="otherTicket" class="bill_details" style="padding-bottom: 13px;" v-if="!isCheckTicket">
             <div class="clearfix route_details_title">
-                <h3 class="route_name cleft" id="route_name1" v-text="routeName">C013下东廓—高教园地铁</h3>
+                <h3 class="route_name cleft" id="route_name1" v-text="routeName"></h3>
             </div>
             <div class="start_end">
                 <div class="clearfix start_point mt2">
                     <i class=" cleft start_circle"></i>
-                    <p class="cleft" style="width: 84%; overflow:hidden; white-space: nowrap;text-overflow: ellipsis " v-text="firstStationName">下东廓村口</p>
+                    <p id="firstStationName" class="cleft" style="width: 84%; overflow:hidden; white-space: nowrap;text-overflow: ellipsis " v-text="firstStationName"></p>
                 </div>
 
                 <div class="clearfix end_point">
                     <i class=" cleft end_circle"></i>
-                    <p class="cleft" style="width: 84%; overflow:hidden; " v-text="lastStationName">高教园地铁站</p>
+                    <p id="lastStationName" class="cleft" style="width: 84%; overflow:hidden; " v-text="lastStationName"></p>
                 </div>
             </div>
             <div class="seat_info" style="display: none;">
@@ -562,5 +562,14 @@
     var date_format = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
    document.getElementById("cartime").innerHTML = date_format;
     document.getElementById("ordertime").innerHTML = date_format;
+    if(date.getHours()<12){
+        document.getElementById("route_name1").innerHTML = "C013下东廓—高教园地铁";
+        document.getElementById("lastStationName").innerHTML = "高教园地铁站";
+        document.getElementById("firstStationName").innerHTML = "下东廓村口";
+    }else{
+        document.getElementById("route_name1").innerHTML = "C013高教园地铁—下东廓";
+        document.getElementById("firstStationName").innerHTML = "高教园地铁站";
+        document.getElementById("lastStationName").innerHTML = "下东廓村口";
+    }
 </script>
 </html>
