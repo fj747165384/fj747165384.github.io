@@ -319,18 +319,18 @@
             <!--...............<span id="orderNum"></span>-->
         </div>
 
-        <div class="today_ticket" style="padding:10px 0; background: #fff;position: fixed;left: 50%;top: 18%;display: none" v-if="isCheckTicket">
+        <div class="today_ticket" style="padding:10px 0; background: #fff;position: absolute;width: 100%;z-index:2;" v-if="isCheckTicket">
 
             <div class="" style="height:200px;">
                 <!--<h3 style=" margin-top: 12px; font-size: 43px; padding: 36px 0 0; text-align: center;color:#486ba6; " id="car_number1"></h3>-->
                 <div class="seat_info" style="color: #486ba6;">
-                    <div class="clearfix bg_animate seat_info_block" style=" position: absolute; top: 96px; font-size: 1.5rem; font-weight: bold; width:100%; margin: 0 auto;text-align: center;z-index: 10; background-image: none;">
+                    <div class="clearfix bg_animate seat_info_block" style=" position: absolute; top: 236px; font-size: 1.5rem; font-weight: bold; width:100%; margin: 0 auto;text-align: center;z-index: 10; background-image: none;">
                         <div>
-                            <span v-text="carTime"></span>
+                            <span id="spantime"></span>
                         </div>
                     </div>
                     <!--......-->
-                    <div class="circles" style="top:80px" v-show="isCheckTicket">
+                    <div class="circles" style="top:138px" v-show="isCheckTicket">
                         <!--v-show="isCheckTicket"-->
                         <div></div>
                         <div></div>
@@ -340,7 +340,7 @@
                 </div>
             </div>
         </div>
-        <div id="otherTicket" class="bill_details" style="padding-bottom: 13px;" v-if="!isCheckTicket">
+        <div id="otherTicket" class="bill_details" style="padding-bottom: 13px;position: absolute;z-index: 3;width: 95%;border: 1px solid #e2e2e2;" v-if="!isCheckTicket">
             <div class="clearfix route_details_title">
                 <h3 class="route_name cleft" id="route_name1" v-text="routeName"></h3>
             </div>
@@ -366,7 +366,7 @@
             <a id="join_talk" class="cleft car_position join_talk_2">............</a>
             <a id="vp" class="cright car_position" href="javascript:void(0);">............</a>
         </div>
-        <div id="other_details_info" >
+        <div id="other_details_info" style="margin-top: 414px">
             <div class="bill_details">
                 <h3 class="route_details_title">乘车信息</h3>
                 <ul class="bill_details_list">
@@ -560,8 +560,9 @@
 <script>
     var date = new Date();
     var date_format = date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate();
-   document.getElementById("cartime").innerHTML = date_format;
+    document.getElementById("cartime").innerHTML = date_format;
     document.getElementById("ordertime").innerHTML = date_format;
+    document.getElementById("spantime").innerHTML = date_format;
     if(date.getHours()<12){
         document.getElementById("route_name1").innerHTML = "C013下东廓—高教园地铁";
         document.getElementById("lastStationName").innerHTML = "高教园地铁站";
